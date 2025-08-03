@@ -24,7 +24,7 @@ function LogoTicker() {
                             className="flex gap-8 items-center"
                             ref={tickerRef}
                             animate={{ x: [0, -400, 0] }}
-                            transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
+                            transition={{ repeat: Infinity, duration: 80, ease: "linear" }}
                             style={{ minWidth: "max-content" }}
                         >
                             {logos.concat(logos).map((logo, idx) => (
