@@ -5,38 +5,44 @@ import { Zap, Shield, Rocket, BarChart, Users, Clock } from 'lucide-react';
 const features = [
   {
     icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Experience blazing-fast performance with our optimized workflow solutions.',
+    title: 'AI-Powered Mock Interviews',
+    description:
+      'Practice real interview questions and get instant, actionable feedback from our advanced AI. Build confidence before the real thing.',
     gradient: 'from-yellow-400 to-orange-500',
   },
   {
     icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-grade encryption and security measures to protect your valuable data.',
+    title: 'CV Builder',
+    description:
+      'Create a professional, recruiter-ready CV in minutes. Use proven templates and expert guidance to stand out.',
     gradient: 'from-green-400 to-emerald-500',
   },
   {
     icon: Users,
-    title: 'Team Collaboration',
-    description: 'Seamlessly work together with your team in real-time across all devices.',
+    title: 'Personalized Learning Paths',
+    description:
+      'Get a step-by-step roadmap tailored to your career goals. Learn the right skills, ace interviews, and land your dream job.',
     gradient: 'from-blue-400 to-indigo-500',
   },
   {
     icon: BarChart,
-    title: 'Advanced Analytics',
-    description: 'Gain valuable insights with comprehensive analytics and reporting tools.',
+    title: 'Progress Dashboard',
+    description:
+      'Track your growth, strengths, and completed tasks in one place. See your improvement and stay motivated.',
     gradient: 'from-purple-400 to-pink-500',
   },
   {
     icon: Clock,
-    title: 'Automation',
-    description: 'Save time with intelligent automation of repetitive tasks and workflows.',
+    title: 'Instant Feedback',
+    description:
+      'No more waiting. Get detailed, personalized feedback on your answers and CV instantly, 24/7.',
     gradient: 'from-red-400 to-rose-500',
   },
   {
     icon: Rocket,
-    title: 'Scalable Solution',
-    description: 'Grow confidently with a platform that scales with your business needs.',
+    title: 'Built for Beginners',
+    description:
+      'Ajira365 is designed for those starting out. No experience? No problem. We guide you every step of the way.',
     gradient: 'from-cyan-400 to-teal-500',
   },
 ];
@@ -78,14 +84,14 @@ export const Features = () => {
             <Rocket className="w-5 h-5 text-indigo-600 mr-2" />
             <span className="text-indigo-600 font-medium">Powerful Features</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold text-gray-900"
           >
-            Everything you need to streamline your workflow
+            All the tools you need to land your dream job
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +100,7 @@ export const Features = () => {
             transition={{ delay: 0.2 }}
             className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            Boost productivity and efficiency with our comprehensive suite of features
+            Prepare smarter, not harder. Ajira365 gives you everything to stand out at every stage of your job search—from application to offer.
           </motion.p>
         </div>
 
@@ -116,8 +122,10 @@ export const Features = () => {
               >
                 <div className="h-full p-8 bg-white rounded-2xl shadow-lg transition-all duration-300
                               hover:shadow-2xl hover:shadow-indigo-100">
-                  <div className={`inline-flex items-center justify-center p-3 rounded-2xl
-                                bg-gradient-to-br ${feature.gradient} group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`inline-flex items-center justify-center p-3 rounded-2xl
+                                bg-gradient-to-br ${feature.gradient} group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="mt-6 text-2xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
@@ -126,7 +134,7 @@ export const Features = () => {
                   <p className="mt-4 text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
-                  
+
                   {/* Hover effect line */}
                   <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600
                                 group-hover:w-full transition-all duration-300" />

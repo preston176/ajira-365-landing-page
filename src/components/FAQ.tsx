@@ -4,28 +4,33 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'How does the free trial work?',
-    answer: 'Our 14-day free trial gives you full access to all features. No credit card required. Cancel anytime.',
+    question: 'Is Ajira365 really free to use?',
+    answer: 'Yes! You can access all our core features, including mock interviews and the CV builder, completely free. No credit card required.',
   },
   {
-    question: 'Can I change my plan later?',
-    answer: 'Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.',
+    question: 'How do AI-powered mock interviews work?',
+    answer:
+      'Our AI simulates real interview scenarios and provides instant, personalized feedback on your answers to help you improve.',
   },
   {
-    question: 'What kind of support do you offer?',
-    answer: 'We offer 24/7 email support for all plans. Pro and Enterprise plans include priority support and dedicated account managers.',
+    question: 'Can I download or share my CV?',
+    answer:
+      'Absolutely. You can download your CV as a PDF or share a link with employers directly from your dashboard.',
   },
   {
-    question: 'Is there a limit on team members?',
-    answer: 'Basic plans support up to 5 team members, Pro plans up to 20, and Enterprise plans have unlimited team members.',
+    question: 'What kind of jobs can I prepare for?',
+    answer:
+      'Ajira365 supports a wide range of roles, from entry-level to professional, across tech, business, and more. Fill in a job title and description and you are ready to go',
   },
   {
-    question: 'Can I export my data?',
-    answer: 'Yes, you can export your data at any time in various formats including CSV, JSON, and PDF.',
+    question: 'Is my data safe and private?',
+    answer:
+      'We use industry-standard encryption and never share your data with third parties. You are always in control of your information.',
   },
   {
-    question: 'What about security and privacy?',
-    answer: 'We use industry-standard encryption and security measures. Your data is stored in secure, SOC 2 compliant data centers.',
+    question: 'Can I get help if I get stuck?',
+    answer:
+      'Yes! Our support team is available 24/7 via email, and you can also access our help center for guides and tips.',
   },
 ];
 
@@ -41,9 +46,11 @@ export const FAQ = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold text-gray-900">
+            Frequently Asked Questions
+          </h2>
           <p className="mt-4 text-xl text-gray-600">
-            Have questions? We're here to help.
+            Having questions? We&apos;re here to help.
           </p>
         </motion.div>
 
@@ -60,7 +67,9 @@ export const FAQ = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
                 className="w-full px-6 py-4 flex justify-between items-center text-left"
               >
                 <span className="text-lg font-semibold text-gray-900">
