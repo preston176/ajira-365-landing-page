@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
   { name: "Features", href: "/#features" },
-  { name: "Testimonials", href: "/#testimonials" },
+  // { name: "Testimonials", href: "/#testimonials" },
   { name: "FAQs", href: "/#faq" },
   { name: "Contact Us", href: "/contact" },
 ]
@@ -33,7 +33,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex justify-between items-center py-4 w-full">
           <div className="flex items-center">
-            <span className="text-xl font-bold text-white">Ajira365</span>
+            <a href="/" className="text-xl font-bold text-white hover:underline cursor-pointer">Ajira365</a>
           </div>
 
           {/* Desktop Navigation */}
@@ -100,51 +100,5 @@ export const Header = () => {
         </AnimatePresence>
       </div>
     </motion.header>
-  )
-}
-
-export const LogoTicker = () => {
-  // Example logos, replace with real ones as needed
-  const logos = [
-    { src: "/logo1.png", alt: "University of Nairobi" },
-    { src: "/logo2.png", alt: "Kenyatta University" },
-    { src: "/logo3.png", alt: "Safaricom" },
-    { src: "/logo4.png", alt: "Google" },
-    { src: "/logo5.png", alt: "Microsoft" },
-    { src: "/logo6.png", alt: "Andela" },
-    { src: "/logo7.png", alt: "PwC" },
-    { src: "/logo8.png", alt: "KPMG" },
-  ]
-  const tickerRef = useRef(null)
-
-  return (
-    <section className="bg-white py-4 border-b border-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center">
-          <span className="text-sm md:text-base font-semibold text-[#0a2e8c] mb-2">
-            Trusted by students from top universities & companies
-          </span>
-          <div className="relative w-full overflow-hidden">
-            <motion.div
-              className="flex gap-8 items-center"
-              ref={tickerRef}
-              animate={{ x: [0, -400, 0] }}
-              transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
-              style={{ minWidth: "max-content" }}
-            >
-              {logos.concat(logos).map((logo, idx) => (
-                <img
-                  key={idx}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-8 md:h-10 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                  draggable="false"
-                />
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
   )
 }

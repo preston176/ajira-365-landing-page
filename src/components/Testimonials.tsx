@@ -1,34 +1,52 @@
-import React from 'react';
+// import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    role: 'Product Manager',
-    company: 'TechCorp',
+    name: 'Lewis Moruri',
+    role: 'Software Engineer',
+    company: 'Nairobi Tech Hub',
     image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
+      'https://randomuser.me/api/portraits/women/68.jpg',
     content:
-      'This product has completely transformed how our team works. The automation features alone have saved us countless hours.',
+      'Ajira365 gave me the confidence to ace my first real interview. The AI feedback was spot on and helped me land my current job in Westlands!',
   },
   {
-    name: 'Michael Chen',
-    role: 'CEO',
-    company: 'StartupX',
+    name: 'Brian Otieno',
+    role: 'Graduate Trainee',
+    company: 'Safaricom',
     image:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
+      'https://randomuser.me/api/portraits/men/65.jpg',
     content:
-      'The best investment weve made for our workflow. The interface is intuitive and the features are exactly what we needed.',
+      'I never thought online mock interviews could feel so real. The platform is easy to use and the tips are tailored for the Kenyan job market.',
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Team Lead',
-    company: 'InnovateNow',
+    name: 'Mercy Achieng',
+    role: 'HR Assistant',
+    company: 'Kisumu County',
     image:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80',
+      'https://randomuser.me/api/portraits/women/65.jpg',
     content:
-      'Outstanding support team and regular updates keep making the product better. Highly recommended for any growing team.',
+      'Ajira365 is a game changer for job seekers. I recommend it to all my friends looking for work in Kenya. The CV builder is a lifesaver!',
+  },
+  {
+    name: 'Kevin Mwangi',
+    role: 'Data Analyst',
+    company: 'M-Pesa Foundation',
+    image:
+      'https://randomuser.me/api/portraits/men/66.jpg',
+    content:
+      'The instant feedback and localised advice made all the difference. I got called for interviews within weeks of using Ajira365.',
+  },
+  {
+    name: 'Janet Njeri',
+    role: 'University Student',
+    company: 'University of Nairobi',
+    image:
+      'https://randomuser.me/api/portraits/women/66.jpg',
+    content:
+      'As a student, I found the practice interviews and resources super helpful. I feel ready for the job market in Kenya!',
   },
 ];
 

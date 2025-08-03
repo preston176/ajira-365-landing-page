@@ -33,9 +33,9 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-[#ff7a01]/10 rounded-full mb-8"
+              className="inline-flex items-center px-4 py-2 bg-orange-400/10 rounded-full mb-8 shadow-sm"
             >
-              <span className="text-[#ff7a01] font-medium">100% FREE · No credit card required · Start instantly</span>
+              <span className="text-orange-400 font-medium">100% FREE · No credit card required · Start instantly</span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
@@ -55,7 +55,7 @@ export const Hero = () => {
               <button className="bg-white hover:bg-gray-100 text-[#0a2e8c] px-6 py-3 rounded-lg font-semibold shadow transition-colors duration-200 w-full sm:w-auto">See How it Works</button>
             </div>
             <div className="mt-4 flex items-center space-x-2 text-white/80 text-sm">
-              <span>★ 4.9/5 (200+ reviews)</span>
+              {/* <span>★ 4.9/5 (200+ reviews)</span> */}
               <span className="hidden sm:inline">· Join 100+ users already building their career</span>
             </div>
           </motion.div>
@@ -69,7 +69,7 @@ export const Hero = () => {
             <img
               src="/image.png"
               alt="Ajira365 Interview Demo"
-              className="w-full md:absolute md:scale-[2] md:top-[-120px] md:right-[-120px] max-w-md rounded-xl shadow-2xl border-4 border-white/20 bg-white/10"
+              className="w-full sm:hidden md:flex md:absolute md:scale-[2] md:top-[-120px] md:right-[-120px] max-w-md rounded-xl shadow-2xl border-4 border-white/20 bg-white/10"
             />
           </motion.div>
         </div>

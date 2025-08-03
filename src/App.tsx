@@ -4,12 +4,11 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 // import { Showcase } from './components/Showcase';
-import { Testimonials } from './components/Testimonials';
+// import { Testimonials } from './components/Testimonials';
 // import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
-import { LogoTicker } from './components/Header';
 import Contact from './pages/contact';
 import About from "./pages/about";
 import Careers from "./pages/careers";
@@ -18,6 +17,7 @@ import TermsOfService from "./pages/terms-of-service";
 import CookiePolicy from "./pages/cookie-policy";
 import DataProcessing from "./pages/data-processing";
 import { useScrollToHash } from './hooks/useScrollToHash';
+import LogoTicker from './components/LogoTicker';
 
 function Home() {
 
@@ -28,7 +28,7 @@ function Home() {
       <LogoTicker />
       <Features />
       {/* <Showcase /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* <Pricing /> */}
       <FAQ />
       <CTA />
