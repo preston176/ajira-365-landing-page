@@ -17,7 +17,7 @@ function LogoTicker() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center">
                     <span className="text-sm md:text-base font-semibold text-[#0a2e8c] mb-2">
-                        Trusted by students from top universities & companies
+                        Trusted by top companies worldwide
                     </span>
                     <div className="relative w-full overflow-hidden">
                         <motion.div
