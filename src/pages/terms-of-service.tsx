@@ -42,7 +42,7 @@ export default function TermsOfService() {
                 <p className="text-[#1b3fa0] mb-4">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.</p>
 
                 <h2 className="text-2xl font-semibold text-[#0a2e8c] mt-10 mb-2">10. Contact Us</h2>
-                <p className="text-[#1b3fa0] mb-8">If you have any questions about these Terms, please contact us at <a href="mailto:prestonnyamweya@gmail.com" className="text-[#ff7a01] underline">prestonnyamweya@gmail.com</a>.</p>
+                <p className="text-[#1b3fa0] mb-8">If you have any questions about these Terms, please contact us at <a href="mailto:privacy@ajira365.com" className="text-[#ff7a01] underline">privacy@ajira365.com</a>.</p>
                 <a href="/" className="text-[#ff7a01] hover:underline text-sm">&larr; Back to Home</a>
             </div>
         </section>

@@ -142,8 +142,8 @@ export default function Contact() {
                         <div>
                             <span className="block text-[#1b3fa0] font-semibold">Email Address</span>
                             <a
-                                href="mailto:prestonnyamweya@gmail.com"
-                                className="block text-orange-600 cursor-pointer hover:underline">prestonnyamwaya@gmail.com</a>
+                                href="mailto:support@ajira365.com"
+                                className="block text-orange-600 cursor-pointer hover:underline">support@ajira365.com</a>
                             <span className="block text-xs text-[#1b3fa0]">We typically respond within 24 hours</span>
                         </div>
                     </div>
