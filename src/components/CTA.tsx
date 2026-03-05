@@ -1,6 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const CTA = () => {
   return (
@@ -33,7 +33,9 @@ export const CTA = () => {
                          flex items-center justify-center space-x-2 shadow-lg
                          hover:bg-orange-600 transition-colors duration-200"
               >
-                <span>Get Started Free</span>
+                <Link to="app.ajira365.com">
+                  <span>Get Started Free</span>
+                </Link>
                 <ArrowRight size={20} />
               </motion.button>
               <motion.button

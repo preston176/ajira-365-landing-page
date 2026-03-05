@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const navItems = [
   { name: "Features", href: "/#features" },
@@ -47,9 +48,11 @@ export const Header = () => {
                 {item.name}
               </a>
             ))}
+            <Link to="app.ajira365.com">
             <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 shadow">
               Get Started
             </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}

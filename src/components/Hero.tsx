@@ -1,5 +1,6 @@
 // import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 // import { ArrowRight, Sparkles, Shield, Zap } from 'lucide-react';
 
 export const Hero = () => {
@@ -51,7 +52,9 @@ export const Hero = () => {
               <li>• Receive actionable tips and personalized support</li>
             </ul>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
+             <Link to="app.ajira365.com">
               <button className="bg-[#ff7a01] hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow transition-colors duration-200 w-full sm:w-auto">Get Started Free</button>
+              </Link>
               <button className="bg-white hover:bg-gray-100 text-[#0a2e8c] px-6 py-3 rounded-lg font-semibold shadow transition-colors duration-200 w-full sm:w-auto">See How it Works</button>
             </div>
             <div className="mt-4 flex items-center space-x-2 text-white/80 text-sm">
