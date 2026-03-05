@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { Link } from "react-router-dom"
 
 const navItems = [
   { name: "Features", href: "/#features" },
@@ -48,11 +47,11 @@ export const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Link to="app.ajira365.com">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 shadow">
-              Get Started
-            </button>
-            </Link>
+            <a href="https://app.ajira365.com" target="_blank" rel="noopener noreferrer">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 shadow">
+                Get Started
+              </button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -90,12 +89,14 @@ export const Header = () => {
                     </a>
                   ))}
                   <hr className="border-white/20 my-2" />
-                  <button
-                    className="bg-orange-500  hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 shadow self-stretch w-full cursor-pointer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Get Started
-                  </button>
+                  <a href="https://app.ajira365.com" target="_blank" rel="noopener noreferrer" className="w-full">
+                    <button
+                      className="bg-orange-500  hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 shadow self-stretch w-full cursor-pointer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Get Started
+                    </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

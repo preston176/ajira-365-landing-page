@@ -26,27 +26,29 @@ export const CTA = () => {
               transition={{ delay: 0.2 }}
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#ff7a01] text-white rounded-lg font-medium 
-                         flex items-center justify-center space-x-2 shadow-lg
-                         hover:bg-orange-600 transition-colors duration-200"
-              >
-                <Link to="app.ajira365.com">
+              <a href="https://app.ajira365.com" target="_blank" rel="noopener noreferrer">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-[#ff7a01] text-white rounded-lg font-medium 
+                           flex items-center justify-center space-x-2 shadow-lg
+                           hover:bg-orange-600 transition-colors duration-200"
+                >
                   <span>Get Started Free</span>
-                </Link>
-                <ArrowRight size={20} />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white rounded-lg 
-                         font-medium hover:bg-white/10
-                         transition-colors duration-200"
-              >
-                Talk to Support
-              </motion.button>
+                  <ArrowRight size={20} />
+                </motion.button>
+              </a>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 border-2 border-white text-white rounded-lg 
+                           font-medium hover:bg-white/10
+                           transition-colors duration-200"
+                >
+                  Talk to Support
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
