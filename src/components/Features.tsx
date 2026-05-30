@@ -1,106 +1,89 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Shield, Rocket, BarChart, Users, Clock } from 'lucide-react';
+import { Zap, FileText, Compass, BarChart3, Clock, Sparkles } from 'lucide-react';
 
 const features = [
   {
     icon: Zap,
-    title: 'AI-Powered Mock Interviews',
+    title: 'AI mock interviews',
     description:
-      'Practice real interview questions and get instant, actionable feedback from our advanced AI. Build confidence before the real thing.',
-    gradient: 'from-yellow-400 to-orange-500',
+      'Practise real questions for the role you want and get instant feedback on what to keep and what to rework.',
   },
   {
-    icon: Shield,
-    title: 'CV Builder',
+    icon: FileText,
+    title: 'CV builder',
     description:
-      'Create a professional, recruiter-ready CV in minutes. Use proven templates and expert guidance to stand out.',
-    gradient: 'from-green-400 to-emerald-500',
+      'Recruiter-ready CVs in minutes. Proven templates, expert prompts, one-click export to PDF.',
   },
   {
-    icon: Users,
-    title: 'Personalized Learning Paths',
+    icon: Compass,
+    title: 'Personalised learning paths',
     description:
-      'Get a step-by-step roadmap tailored to your career goals. Learn the right skills, ace interviews, and land your dream job.',
-    gradient: 'from-blue-400 to-indigo-500',
+      'A chaptered roadmap for the role you want, built around the skills you have and the ones you need next.',
   },
   {
-    icon: BarChart,
-    title: 'Progress Dashboard',
+    icon: BarChart3,
+    title: 'Progress dashboard',
     description:
-      'Track your growth, strengths, and completed tasks in one place. See your improvement and stay motivated.',
-    gradient: 'from-purple-400 to-pink-500',
+      'See your sessions, strengths, and weak spots in one place. Stay motivated with clear next actions.',
   },
   {
     icon: Clock,
-    title: 'Instant Feedback',
+    title: 'Instant feedback',
     description:
-      'No more waiting. Get detailed, personalized feedback on your answers and CV instantly, 24/7.',
-    gradient: 'from-red-400 to-rose-500',
+      'No waiting and no graders. Detailed, personal notes on every answer and every CV revision, 24/7.',
   },
   {
-    icon: Rocket,
-    title: 'Built for Beginners',
+    icon: Sparkles,
+    title: 'Built for first-timers',
     description:
-      'Ajira365 is designed for those starting out. No experience? No problem. We guide you every step of the way.',
-    gradient: 'from-cyan-400 to-teal-500',
+      'No experience required. We explain every step in plain language and meet you where you are.',
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
 export const Features = () => {
   return (
-    <section id="features" className="relative py-32 bg-gray-50 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzNzMwYTMiIGZpbGwtb3BhY2l0eT0iMC4wNCI+PHBhdGggZD0iTTM2IDM0aDR2NEgzNnpNNDAgMzBoNHY0aC00ek00NCAzNGg0djRoLTR6TTM0IDMwaDR2NGgtNHpNNDAgMzhoNHY0aC00ek0zNCAzOGg0djRoLTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50" />
-
+    <section id="features" className="relative bg-canvas py-24 md:py-32">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <div className="max-w-2xl">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 bg-indigo-50 rounded-full mb-8"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-tint px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-brand-deep"
           >
-            <Rocket className="w-5 h-5 text-indigo-600 mr-2" />
-            <span className="text-indigo-600 font-medium">Powerful Features</span>
-          </motion.div>
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            What you get
+          </motion.span>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-gray-900"
+            className="mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-ink"
           >
-            All the tools you need to land your dream job
+            Everything you need to land that first job.
           </motion.h2>
+
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto"
+            transition={{ delay: 0.1 }}
+            className="mt-4 text-lg leading-relaxed text-ink-soft"
           >
-            Prepare smarter, not harder. Ajira365 gives you everything to stand out at every stage of your job search—from application to offer.
+            Prepare smarter, not harder. Ajira 365 covers the journey from
+            blank page to offer: interviews, CV, study plan, and the
+            confidence to walk in ready.
           </motion.p>
         </div>
 
@@ -109,7 +92,7 @@ export const Features = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -117,28 +100,18 @@ export const Features = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -8 }}
-                className="relative group"
+                whileHover={{ y: -4 }}
+                className="group h-full rounded-2xl bg-paper p-7 shadow-card transition-shadow hover:shadow-card-lg"
               >
-                <div className="h-full p-8 bg-white rounded-2xl shadow-lg transition-all duration-300
-                              hover:shadow-2xl hover:shadow-indigo-100">
-                  <div
-                    className={`inline-flex items-center justify-center p-3 rounded-2xl
-                                bg-gradient-to-br ${feature.gradient} group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="mt-6 text-2xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-4 text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-
-                  {/* Hover effect line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600
-                                group-hover:w-full transition-all duration-300" />
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-tint text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+                  <Icon className="h-5 w-5" />
                 </div>
+                <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+                  {feature.description}
+                </p>
               </motion.div>
             );
           })}

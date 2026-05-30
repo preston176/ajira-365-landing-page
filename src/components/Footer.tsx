@@ -1,12 +1,125 @@
-// import React from 'react';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Check, Loader2, Github, Linkedin } from 'lucide-react';
+
+const NEWSLETTER_URL =
+  import.meta.env.VITE_NEWSLETTER_URL ?? 'http://localhost:3000/api/newsletter';
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState<Status>('idle');
+  const [message, setMessage] = useState<string>('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === 'submitting') return;
+
+    const trimmed = email.trim().toLowerCase();
+    if (!EMAIL_RE.test(trimmed)) {
+      setStatus('error');
+      setMessage('Please enter a valid email address.');
+      return;
+    }
+
+    // Optimistic UI: show success immediately, revert on failure.
+    setStatus('success');
+    setMessage('Subscribed. Check your inbox.');
+    const previousEmail = email;
+    setEmail('');
+
+    try {
+      const res = await fetch(NEWSLETTER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: trimmed, honeypot }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setStatus('error');
+        setMessage(data.error ?? 'Could not subscribe. Try again in a moment.');
+        setEmail(previousEmail);
+      }
+    } catch {
+      setStatus('error');
+      setMessage('Could not reach the server. Try again in a moment.');
+      setEmail(previousEmail);
+    }
+  };
+
+  return (
+    <form
+      className="mt-6"
+      aria-label="Newsletter signup"
+      onSubmit={handleSubmit}
+      noValidate
+    >
+      <div className="flex max-w-md rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur-sm overflow-hidden focus-within:ring-white/30 transition">
+        <label htmlFor="footer-email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="footer-email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (status !== 'submitting') setStatus('idle');
+          }}
+          placeholder="Subscribe for career tips"
+          required
+          className="flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none"
+        />
+        {/* Honeypot, hidden from real users and screen readers */}
+        <input
+          type="text"
+          name="honeypot"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          className="hidden"
+        />
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className="flex items-center gap-2 bg-brand hover:bg-brand-deep disabled:opacity-60 px-5 text-sm font-medium transition-colors"
+          aria-label="Subscribe"
+        >
+          {status === 'submitting' ? (
+            <Loader2 className="h-4 w-4 animate-spin" />
+          ) : status === 'success' ? (
+            <Check className="h-4 w-4" />
+          ) : (
+            <Mail className="h-4 w-4" />
+          )}
+        </button>
+      </div>
+      <p
+        className={`mt-3 text-xs ${
+          status === 'error' ? 'text-orange-200' : 'text-white/50'
+        }`}
+        role={status === 'error' ? 'alert' : undefined}
+      >
+        {status === 'success'
+          ? message
+          : status === 'error'
+            ? message
+            : 'Career tips, job-search strategies, and product updates. No spam.'}
+      </p>
+    </form>
+  );
+}
 
 const footerLinks = {
   product: [
-    { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Watch demo', href: '/#demo' },
+    { name: 'FAQ', href: '/#faq' },
   ],
   company: [
     { name: 'About', href: '/about' },
@@ -21,54 +134,61 @@ const footerLinks = {
   ],
   social: [
     { name: 'GitHub', href: 'https://github.com/preston176', icon: Github },
-    { name: 'LinkedIn', href: 'https://linkedin.com/company/ajira365', icon: Linkedin },
+    {
+      name: 'LinkedIn',
+      href: 'https://linkedin.com/company/ajira365',
+      icon: Linkedin,
+    },
   ],
 };
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0a2e8c] text-white" aria-label="Ajira365 Footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Brand and Newsletter */}
+    <footer
+      className="relative bg-navy text-white"
+      aria-label="Ajira 365 footer"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 90% 10%, rgb(233 116 49 / 0.10), transparent 45%)',
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Brand + newsletter */}
           <div className="lg:col-span-2">
-            <div className="flex items-center">
-              {/* <Rocket className="h-8 w-8 text-[#ff7a01]" aria-hidden="true" /> */}
-              <span className="ml-2 text-xl font-bold tracking-tight">Ajira365</span>
-            </div>
-            <p className="mt-4 text-[#b3c6f7] max-w-md text-base leading-relaxed">
-              Ajira365 is a leading AI-powered career platform dedicated to empowering job seekers and professionals across Africa and beyond.
+            <a
+              href="/"
+              className="inline-flex items-baseline gap-1 text-white"
+            >
+              <span className="text-xl font-semibold tracking-tight">
+                Ajira
+              </span>
+              <span className="text-xl font-semibold tracking-tight text-brand">
+                365
+              </span>
+            </a>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/70">
+              An AI-powered career platform for first-job seekers across
+              Kenya, built around the prep that actually moves the needle.
             </p>
-            <form className="mt-6" aria-label="Newsletter Signup" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex max-w-md">
-                <input
-                  type="email"
-                  placeholder="Subscribe for career tips"
-                  aria-label="Email address"
-                  className="flex-1 px-4 py-3 rounded-l-lg bg-white/80 text-[#0a2e8c] placeholder-[#1b3fa0] focus:outline-none focus:ring-2 focus:ring-[#ff7a01]"
-                />
-                <button
-                  type="submit"
-                  onClick={(e) => e.preventDefault()}
-                  className="px-6 py-3 bg-[#ff7a01] rounded-r-lg hover:bg-orange-600 transition-colors duration-200 flex items-center"
-                  aria-label="Subscribe"
-                >
-                  <Mail className="w-5 h-5" />
-                </button>
-              </div>
-            </form>
-            <p className="mt-2 text-xs text-[#b3c6f7]">Get exclusive updates, job search strategies, and AI-powered career advice delivered to your inbox.</p>
+            <NewsletterForm />
           </div>
 
-          {/* Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Product</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-4">
+              Product
+            </h3>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-[#b3c6f7] hover:text-white transition-colors duration-200"
+                    className="text-[15px] text-white/70 hover:text-white transition-colors"
                   >
                     {link.name}
                   </a>
@@ -78,13 +198,15 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-4">
+              Company
+            </h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-[#b3c6f7] hover:text-white transition-colors duration-200"
+                    className="text-[15px] text-white/70 hover:text-white transition-colors"
                   >
                     {link.name}
                   </a>
@@ -94,13 +216,15 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-4">
+              Legal
+            </h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-[#b3c6f7] hover:text-white transition-colors duration-200"
+                    className="text-[15px] text-white/70 hover:text-white transition-colors"
                   >
                     {link.name}
                   </a>
@@ -110,12 +234,12 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#b3c6f7]/30">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#b3c6f7] text-sm">
-              © {new Date().getFullYear()} Ajira365. All rights reserved. | Empowering Africa's workforce, one interview at a time.
+        <div className="mt-14 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-white/60">
+              © {new Date().getFullYear()} Ajira 365. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex items-center gap-4">
               {footerLinks.social.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -124,11 +248,10 @@ export const Footer = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#b3c6f7] hover:text-[#ff7a01] transition-colors duration-200"
                     aria-label={item.name}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-colors"
                   >
-                    <span className="sr-only">{item.name}</span>
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-4 w-4" />
                   </a>
                 );
               })}

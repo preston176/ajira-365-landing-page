@@ -18,6 +18,7 @@ import CookiePolicy from "./pages/cookie-policy";
 import DataProcessing from "./pages/data-processing";
 import { useScrollToHash } from './hooks/useScrollToHash';
 import LogoTicker from './components/LogoTicker';
+import { VideoShowcase } from './components/VideoShowcase';
 
 function Home() {
 
@@ -27,6 +28,7 @@ function Home() {
       <Hero />
       <LogoTicker />
       <Features />
+      <VideoShowcase />
       {/* <Showcase /> */}
       {/* <Testimonials /> */}
       {/* <Pricing /> */}
@@ -38,7 +40,7 @@ function Home() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#eaf1ff] w-full overflow-x-hidden">
+    <div className="min-h-screen bg-canvas w-full overflow-x-hidden font-sans text-ink">
       <Router>
         <Header />
         <Routes>

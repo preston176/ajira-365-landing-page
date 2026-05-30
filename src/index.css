@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────────────
+   Ajira365 landing-page tokens: mirror the product's design system
+   (oklch values from app/globals.css translated to sRGB for legacy v3).
+   ────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Surface */
+  --canvas: 245 247 250;     /* pale cool gray page bg */
+  --paper: 255 255 255;      /* white card surface */
+  --paper-deep: 244 247 251; /* slightly darker card surface */
+
+  /* Text */
+  --ink: 26 33 56;           /* near-black for body */
+  --ink-soft: 71 81 110;     /* secondary text */
+  --stone: 124 132 156;      /* muted UI text */
+
+  --border: 226 230 240;
+
+  /* Brand: terra orange (mirrors dashboard oklch 0.65 0.185 42) */
+  --brand: 231 94 27;
+  --brand-deep: 203 48 0;
+  --brand-tint: 255 233 223;
+  --brand-fg: 255 255 255;
+
+  /* Navy: cobalt foundation (mirrors dashboard oklch 0.32 0.16 260) */
+  --navy: 0 39 130;
+  --navy-deep: 0 25 117;
+  --navy-light: 0 86 164;
+  --navy-tint: 224 234 255;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background-color: rgb(var(--canvas));
+  color: rgb(var(--ink));
+}
+
+/* Pointer affordance on actionable elements, matches product */
+@layer base {
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+}

@@ -4,58 +4,65 @@ import { Link } from 'react-router-dom';
 
 export const CTA = () => {
   return (
-    <section className="py-24 bg-[#0a2e8c] relative">
+    <section className="bg-canvas pb-24 md:pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10">
+        <div className="relative isolate overflow-hidden rounded-3xl bg-hero-navy px-6 py-16 md:px-16 md:py-24 shadow-card-lg">
+          {/* Warm + soft glows */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle at 90% 10%, rgb(233 116 49 / 0.28), transparent 45%), radial-gradient(circle at 10% 90%, rgb(255 255 255 / 0.10), transparent 45%)',
+            }}
+          />
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="relative text-center max-w-2xl mx-auto"
           >
-            <h2 className="text-4xl font-bold text-white">
-              Ready to Launch Your Career in Kenya?
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
+              Ready to launch your career?
             </h2>
-            <p className="mt-4 text-xl text-[#b3c6f7]">
-              Join thousands of Kenyans using Ajira365 to practice interviews, build winning CVs, and get hired faster. Your dream job is just a click away!
+            <p className="mt-4 text-lg leading-relaxed text-white/80">
+              Join hundreds of Kenyans using Ajira 365 to practise interviews,
+              build winning CVs, and walk into the room ready.
             </p>
+
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+              transition={{ delay: 0.15 }}
+              className="mt-10 flex flex-col sm:flex-row gap-3 justify-center"
             >
-              <a href="https://app.ajira365.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://app.ajira365.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-[#ff7a01] text-white rounded-lg font-medium 
-                           flex items-center justify-center space-x-2 shadow-lg
-                           hover:bg-orange-600 transition-colors duration-200"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-brand hover:bg-brand-deep text-white px-7 py-3.5 text-sm font-medium shadow-card-lg transition-colors"
                 >
-                  <span>Get Started Free</span>
-                  <ArrowRight size={20} />
+                  Get started free
+                  <ArrowRight className="h-4 w-4" />
                 </motion.button>
               </a>
               <Link to="/contact">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 border-2 border-white text-white rounded-lg 
-                           font-medium hover:bg-white/10
-                           transition-colors duration-200"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-white/30 hover:border-white text-white px-7 py-3.5 text-sm font-medium transition-colors"
                 >
-                  Talk to Support
+                  Talk to support
                 </motion.button>
               </Link>
             </motion.div>
           </motion.div>
-        </div>
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff7a01] rounded-full opacity-20 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white rounded-full opacity-10 blur-3xl" />
         </div>
       </div>
     </section>
