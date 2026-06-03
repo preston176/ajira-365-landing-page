@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import { useReferralHref } from "../hooks/useReferralHref"
 
 const navItems = [
   { name: "Features", href: "/#features" },
@@ -14,6 +15,7 @@ const navItems = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const signUpHref = useReferralHref('/sign-up')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,7 @@ export const Header = () => {
               </a>
             ))}
             <a
-              href="https://app.ajira365.com"
+              href={signUpHref}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -97,7 +99,7 @@ export const Header = () => {
                     </a>
                   ))}
                   <a
-                    href="https://app.ajira365.com"
+                    href={signUpHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2"

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useReferralHref } from '../hooks/useReferralHref';
 
 export const CTA = () => {
+  const signUpHref = useReferralHref('/sign-up');
   return (
     <section className="bg-canvas pb-24 md:pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +41,7 @@ export const CTA = () => {
               className="mt-10 flex flex-col sm:flex-row gap-3 justify-center"
             >
               <a
-                href="https://app.ajira365.com"
+                href={signUpHref}
                 target="_blank"
                 rel="noopener noreferrer"
               >

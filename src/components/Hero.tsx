@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useReferralHref } from '../hooks/useReferralHref';
 
 export const Hero = () => {
+  const signUpHref = useReferralHref('/sign-up');
   return (
     <section
       id="home"
@@ -72,7 +74,7 @@ export const Hero = () => {
 
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <a
-                href="https://app.ajira365.com"
+                href={signUpHref}
                 target="_blank"
                 rel="noopener noreferrer"
               >

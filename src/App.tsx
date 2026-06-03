@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
-// import { Showcase } from './components/Showcase';
-// import { Testimonials } from './components/Testimonials';
-// import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
@@ -19,6 +16,7 @@ import DataProcessing from "./pages/data-processing";
 import { useScrollToHash } from './hooks/useScrollToHash';
 import LogoTicker from './components/LogoTicker';
 import { VideoShowcase } from './components/VideoShowcase';
+// import { Testimonials } from './components/Testimonials'; // TODO: revisit, hidden for now
 
 function Home() {
 
@@ -29,9 +27,7 @@ function Home() {
       <LogoTicker />
       <Features />
       <VideoShowcase />
-      {/* <Showcase /> */}
       {/* <Testimonials /> */}
-      {/* <Pricing /> */}
       <FAQ />
       <CTA />
     </>

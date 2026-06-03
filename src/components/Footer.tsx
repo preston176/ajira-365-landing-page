@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { Mail, Check, Loader2, Github, Linkedin } from 'lucide-react';
 
+// Default to the prod endpoint. Dev environments must set
+// VITE_NEWSLETTER_URL=http://localhost:3000/api/newsletter explicitly.
+// We deliberately do NOT fall back to localhost so a deploy that
+// forgets the env var can't silently swallow subscribes.
 const NEWSLETTER_URL =
-  import.meta.env.VITE_NEWSLETTER_URL ?? 'http://localhost:3000/api/newsletter';
+  import.meta.env.VITE_NEWSLETTER_URL ?? 'https://app.ajira365.com/api/newsletter';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
