@@ -4,10 +4,15 @@ import { Play } from 'lucide-react';
 
 // Drop the YouTube video ID here when ready (e.g. "dQw4w9WgXcQ").
 // While empty, the section renders a branded placeholder.
-const YOUTUBE_VIDEO_ID = '';
+const YOUTUBE_VIDEO_ID = '_ZilkYaFLM4';
 
 export const VideoShowcase = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  // maxresdefault.jpg isn't generated for every video; fall back to
+  // hqdefault.jpg (always present) if the high-res thumbnail 404s.
+  const [thumbSrc, setThumbSrc] = useState(
+    `https://i.ytimg.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`
+  );
 
   const hasVideo = YOUTUBE_VIDEO_ID.length > 0;
 
@@ -56,8 +61,9 @@ export const VideoShowcase = () => {
               <iframe
                 title="Ajira 365 product demo"
                 className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
             ) : (
@@ -68,11 +74,20 @@ export const VideoShowcase = () => {
                 className="absolute inset-0 flex items-center justify-center disabled:cursor-default"
                 aria-label={hasVideo ? 'Play product demo' : 'Demo video coming soon'}
               >
-                {/* Optional thumbnail when a video is set */}
+                {/* Thumbnail facade — the iframe only mounts on click,
+                    so the demo costs nothing until someone hits play. */}
                 {hasVideo && (
                   <img
-                    src={`https://i.ytimg.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`}
-                    alt=""
+                    src={thumbSrc}
+                    onError={() =>
+                      setThumbSrc(
+                        `https://i.ytimg.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`
+                      )
+                    }
+                    alt="Ajira 365 product demo preview"
+                    loading="lazy"
+                    width={1280}
+                    height={720}
                     className="absolute inset-0 h-full w-full object-cover opacity-90"
                   />
                 )}
